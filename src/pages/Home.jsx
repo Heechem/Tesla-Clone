@@ -1,12 +1,12 @@
 import HomeSectionVideo from "../components/homeSectionVideo/HomeSectionVideo";
 import ImageBackgroundSection from "../components/imageBackgroundSection/ImageBackgroundSection";
-
+import "../index.css";
 const Home = () => {
   return (
     <div style={{ scrollSnapType: "y mandatory" }}>
       <HomeSectionVideo />
       <div
-        className="h-screen  overflow-auto   "
+        className="hide-scrollbar  h-screen  overflow-auto  "
         style={{ scrollSnapType: "y mandatory" }}
       >
         <ImageBackgroundSection

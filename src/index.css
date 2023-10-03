@@ -4,4 +4,23 @@
 
 body {
   color: white;
+  background: black;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0.1rem; /* Adjust as needed */
+}
+
+.hide-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Handle on hover */
+.hide-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: transparent;
 }

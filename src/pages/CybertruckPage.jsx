@@ -1,4 +1,8 @@
 import ImageBackgroundSection from "../components/imageBackgroundSection/ImageBackgroundSection";
+import ImageGrid from "../components/imageGrid/ImageGrid";
+import NoTextImageBackground from "../components/noTextImageBackground/NoTextImageBackground";
+import modelY from "../assets/inside.jpg";
+import "../index.css";
 
 const featureItems = [
   { title: "3.1s 0-60 mph", description: "AWD  Dual Motor" },
@@ -9,14 +13,29 @@ const featureItems = [
 
 const CybertruckPage = () => {
   return (
-    <div className="h-screen overflow-hidden  bg-cover bg-center">
-      <ImageBackgroundSection
-        header={"Cyber Truck"}
-        description={"view inventory"}
-        bgImage={"bg-truck"}
-        featureItems={featureItems}
+    <>
+      <div
+        className="hide-scrollbar h-screen overflow-y-auto   overflow-x-hidden bg-cover bg-center"
+        style={{ scrollSnapType: "y mandatory" }}
+      >
+        <ImageBackgroundSection
+          header={"Cyber Truck"}
+          description={"view inventory"}
+          bgImage={"bg-truck"}
+          featureItems={featureItems}
+        />
+        <NoTextImageBackground bgImage={"bg-insideModelS"} />
+      </div>
+      <ImageGrid
+        img1={modelY}
+        text1={
+          "The inside of Model 3 is unlike any other vehicle with unrivaled technology, premium materials and plenty of legroom."
+        }
+        text2={
+          "Accelerate from 0-100 km/h* in as little as 3.3 seconds with an optional Performance upgrade—featuring Dual Motor AWD, upgraded brakes and more."
+        }
       />
-    </div>
+    </>
   );
 };
 

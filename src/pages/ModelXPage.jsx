@@ -1,6 +1,6 @@
-import React from "react";
-import Header from "../components/header/Header";
 import ImageBackgroundSection from "../components/imageBackgroundSection/ImageBackgroundSection";
+import NoTextImageBackground from "../components/noTextImageBackground/NoTextImageBackground";
+import "../index.css";
 
 const featureItems = [
   { title: "3.1s 0-60 mph", description: "AWD  Dual Motor" },
@@ -11,13 +11,17 @@ const featureItems = [
 
 const ModelXPage = () => {
   return (
-    <div className="h-screen overflow-hidden  bg-cover bg-center">
+    <div
+      className="hide-scrollbar h-screen overflow-y-auto  overflow-x-hidden bg-cover bg-center"
+      style={{ scrollSnapType: "y mandatory" }}
+    >
       <ImageBackgroundSection
         header={"Model X"}
         description={"view inventory"}
         bgImage={"bg-modelX"}
         featureItems={featureItems}
       />
+      <NoTextImageBackground bgImage={"bg-insideModelY"} />
     </div>
   );
 };

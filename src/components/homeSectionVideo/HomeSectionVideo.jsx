@@ -1,8 +1,9 @@
 import TeslaVid from "../../assets/tesla-vid.mp4";
+import "../../index.css";
 
 const HomeSectionVideo = () => {
   return (
-    <div className="scroll relative  h-screen overflow-hidden">
+    <div className="scroll hide-scrollbar  relative h-screen overflow-hidden">
       <video
         className=" absolute bottom-0 right-0 top-0 z-10 min-h-full min-w-full object-cover "
         autoPlay
