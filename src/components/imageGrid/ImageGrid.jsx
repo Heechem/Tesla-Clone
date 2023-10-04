@@ -11,10 +11,11 @@ const ImageGrid = ({ img1, img2, text1, text2 }) => {
       </div>
 
       <div className="text-center">{text1}</div>
-      <div>
+      <div className="">
         <img
           src="https://images.pexels.com/photos/10549262/pexels-photo-10549262.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           alt=""
+          className="h-full w-screen"
         />
       </div>
       <div

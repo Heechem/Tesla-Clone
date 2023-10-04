@@ -3,7 +3,10 @@ export const headerElemets = [
   { label: "Model S", route: "model_s" },
   { label: "Model X", route: "model_x" },
   { label: "Cybertruck", route: "cybertruck" },
+  { label: "Shop", route: "shop" },
+
   { label: "Menu", route: null, style: "ml-auto" },
+  { label: "Cart", route: "cart", style: "left-0" },
 ];
 
 export const menuElemets = [

@@ -4,6 +4,17 @@ import CybertruckPage from "./pages/CybertruckPage";
 import ModelSPage from "./pages/ModelSPage";
 import ModelXPage from "./pages/ModelXPage";
 import MainPage from "./components/MainPage";
+import ShopPage from "./pages/ShopPage";
+
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil";
+import Cart from "./components/cart/Cart";
+import CartPage from "./pages/CartPage";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +30,7 @@ const router = createBrowserRouter([
 
     element: (
       <MainPage>
-        <ModelSPage />,
+        <ModelSPage />
       </MainPage>
     ),
   },
@@ -27,7 +38,7 @@ const router = createBrowserRouter([
     path: "/model_x",
     element: (
       <MainPage>
-        <ModelXPage />,
+        <ModelXPage />
       </MainPage>
     ),
   },
@@ -35,14 +46,34 @@ const router = createBrowserRouter([
     path: "/cybertruck",
     element: (
       <MainPage>
-        <CybertruckPage />,
+        <CybertruckPage />
+      </MainPage>
+    ),
+  },
+  {
+    path: "/shop",
+    element: (
+      <MainPage>
+        <ShopPage />
+      </MainPage>
+    ),
+  },
+  {
+    path: "/cart",
+    element: (
+      <MainPage>
+        <CartPage />
       </MainPage>
     ),
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <RecoilRoot>
+      <RouterProvider router={router} />
+    </RecoilRoot>
+  );
 }
 
 export default App;

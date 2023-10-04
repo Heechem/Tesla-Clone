@@ -4,10 +4,15 @@ import Sidebar from "../sidebar/Sidebar";
 import { useState } from "react";
 import Backdrop from "../backdrop/Backdrop";
 import { AnimatePresence, motion } from "framer-motion";
+import { BsFillCartFill } from "react-icons/bs";
+
+import { useRecoilState, useRecoilValue } from "recoil";
+import { cartState } from "../../global-state/cartItems";
 
 const Header = () => {
   const navigate = useNavigate();
   const [shown, setShown] = useState();
+  const cartItems = useRecoilValue(cartState);
 
   return (
     <>
@@ -37,19 +42,41 @@ const Header = () => {
 
       <nav className={`${shown ? "blur-[2px]" : ""}  fixed top-0 z-50 w-full`}>
         <ul className=" flex list-none flex-wrap items-center justify-center">
-          {headerElemets.map(({ label, route, style }) => (
-            <li
-              className={`${style} mx-5 my-10 cursor-pointer items-center 
+          {headerElemets.map(({ label, route, style }) => {
+            if (route === "cart") {
+              return (
+                <li
+                  key={route}
+                  onClick={() => {
+                    if (label !== "Menu") navigate(`/${route}`);
+                    if (label === "Menu") setShown(true);
+                  }}
+                  className={`${style} mx-5 my-10 cursor-pointer items-center 
               rounded-md  p-[10px] transition duration-200 ease-in-out hover:bg-gray-400 sm:w-auto `}
-              key={label}
-              onClick={() => {
-                if (label !== "Menu") navigate(`/${route}`);
-                if (label === "Menu") setShown(true);
-              }}
-            >
-              {label}
-            </li>
-          ))}
+                >
+                  <div className="relative">
+                    <BsFillCartFill size={20} />
+                    <span className="absolute -right-3 top-3">
+                      {cartItems.length}
+                    </span>
+                  </div>
+                </li>
+              );
+            }
+            return (
+              <li
+                className={`${style} mx-5 my-10 cursor-pointer items-center 
+              rounded-md  p-[10px] transition duration-200 ease-in-out hover:bg-gray-400 sm:w-auto `}
+                key={label}
+                onClick={() => {
+                  if (label !== "Menu") navigate(`/${route}`);
+                  if (label === "Menu") setShown(true);
+                }}
+              >
+                {label}
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </>
